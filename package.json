@@ -1,0 +1,22 @@
+{
+  "name": "threejs",
+  "version": "1.0.0",
+  "description": "3D Graphic in Web",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kangdy25/ThreeJS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kangdy25/ThreeJS/issues"
+  },
+  "homepage": "https://github.com/kangdy25/ThreeJS#readme",
+  "dependencies": {
+    "three": "^0.156.1"
+  }
+}
