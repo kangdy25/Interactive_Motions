@@ -15,7 +15,6 @@ if (WEBGL.isWebGLAvailable()) {
     alpha : true,
     antialias : true
   });
-
   renderer.setSize(window.innerWidth, window.innerHeight);
   document.body.appendChild(renderer.domElement);
 
@@ -24,13 +23,18 @@ if (WEBGL.isWebGLAvailable()) {
   pointLight.position.set(0, 2, 12);
   scene.add(pointLight);
 
+  // 텍스쳐
+  const textureLoader = new THREE.TextureLoader();
+  const textureRoughnessMap = textureLoader.load('../img/Metal_006_roughness.jpg');
+  const textureAmbientMap = textureLoader.load('../img/Metal_006_ambientOcclusion.jpg');
+
   // 메쉬 1
   const geomertry01 = new THREE.BoxGeometry(1, 1, 1);
   const material01 = new THREE.MeshStandardMaterial({
     color:0xffaa00,
-    // wireframe : true,
+    map : textureAmbientMap,
     roughness: 0.4,
-    // metalness: 1,
+    metalness: 0.3,
   })
   const obj01 = new THREE.Mesh(geomertry01, material01);
   obj01.position.x = -2
@@ -50,8 +54,8 @@ if (WEBGL.isWebGLAvailable()) {
   const geomertry03 = new THREE.IcosahedronGeometry(0.4, 0)
   const material03 = new THREE.MeshPhongMaterial({
     color:0x00aa00,
-    shininess : 130,
-    specular : 0xffe2ae,
+    map : textureAmbientMap,
+    roughnessMap : textureRoughnessMap,
   })
   const obj03 = new THREE.Mesh(geomertry03, material03);
   obj03.position.x = 2
@@ -59,13 +63,13 @@ if (WEBGL.isWebGLAvailable()) {
 
   function render(time) {
       time *= 0.0005; 
-      // obj01.rotation.x = time;
+      obj01.rotation.x = time;
       obj01.rotation.y = time;
 
-      // obj02.rotation.x = time;
+      obj02.rotation.x = time;
       obj02.rotation.y = time;
 
-      // obj03.rotation.x = time;
+      obj03.rotation.x = time;
       obj03.rotation.y = time;
 
       renderer.render( scene, camera );
