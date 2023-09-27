@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports = {
   mode: 'production',
-  entry: './src/light.js',
+  entry: './src/shadow.js',
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js',

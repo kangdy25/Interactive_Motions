@@ -58,8 +58,8 @@ if (WEBGL.isWebGLAvailable()) {
   const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
   directionalLight.position.set(-1, 1, 1);
   const dlhelper = new THREE.DirectionalLightHelper(directionalLight, 0.2, 0x0000ff);
-//   scene.add(dlhelper);
-//   scene.add(directionalLight);
+  // scene.add(dlhelper);
+  // scene.add(directionalLight);
 
   // 하늘과 땅 컬러 지정
   const hemisphereLight = new THREE.HemisphereLight(0x0000ff, 0xff0000, 0.3);
@@ -68,9 +68,9 @@ if (WEBGL.isWebGLAvailable()) {
   // 한 방향으로 빛 방출 (예. 전구)
   const pointLight = new THREE.PointLight(0xffffff, 1);
   pointLight.position.set(1, 1, 1);
-//   scene.add(pointLight);
-//   const plhelper = new THREE.PointLightHelper(pointLight, 0.5);
-//   scene.add(plhelper);
+  scene.add(pointLight);
+  const plhelper = new THREE.PointLightHelper(pointLight, 0.5);
+  scene.add(plhelper);
 
   // 직사각형 빛 방출
   const rectLight = new THREE.RectAreaLight(0xffffff, 2, 1, 1);
