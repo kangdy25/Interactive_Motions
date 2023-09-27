@@ -1,11 +1,13 @@
 import * as THREE from 'three'
+import {
+    OrbitControls
+} from 'three/examples/jsm/controls/OrbitControls.js'
 
 import {
     WEBGL
 } from './webgl'
 
 if (WEBGL.isWebGLAvailable()) {
-
     // 장면 추가
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0xeeeeee);
@@ -22,7 +24,6 @@ if (WEBGL.isWebGLAvailable()) {
     camera.position.z = 1.8;
     camera.lookAt(new THREE.Vector3(0, 0, 0));
 
-
     // 렌더러 추가
     const renderer = new THREE.WebGLRenderer({
         alpha: true,
@@ -31,6 +32,13 @@ if (WEBGL.isWebGLAvailable()) {
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
     renderer.shadowMap.enabled = true;
+
+    // OrbitControls 추가
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.minDistance = 2;
+    controls.maxDistance = 7;
+    controls.maxPolarAngle = Math.PI / 2    ;
+    controls.update();
 
     // 도형 추가
     const geometry = new THREE.SphereGeometry(0.5, 32, 16);
@@ -106,10 +114,13 @@ if (WEBGL.isWebGLAvailable()) {
     spotLight.shadow.mapSize.height = 2048;
     spotLight.shadow.radius = 8;
 
-    function render(time) {
+    function animate() {
+        requestAnimationFrame(animate);
+        controls.update();
         renderer.render(scene, camera);
+        cube2.rotation.y += 0.01;
     }
-    requestAnimationFrame(render);
+    animate();
 
     // 반응형 처리
     function onWindowResize() {
