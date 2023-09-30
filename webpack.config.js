@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports = {
   mode: 'production',
-  entry: './src/hdr.js',
+  entry: './src/gltf_loader.js',
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js',
