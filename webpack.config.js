@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports = {
   mode: 'production',
-  entry: './src/particle.js',
+  entry: './src/interaction.js',
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js',
