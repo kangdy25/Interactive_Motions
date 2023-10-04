@@ -11,6 +11,8 @@ canvas {
   display: block; 
 }
 
+/* for Interaction.js */
+/* 
 main {
   position: relative;
   width: 100%;
@@ -41,7 +43,7 @@ main {
   top:190px;
   left:0;
   right:0;
-  /* width: 64vw; */
+  width: 64vw; 
 }
 .t2{
   position: absolute;
@@ -86,7 +88,7 @@ section {
 
 .section-one {
   background-color: blue;
-  /* height: 120vh; */
+  height: 120vh; 
 }
 
 .section-two {
@@ -104,4 +106,4 @@ section {
 
 .section-five {
   background-color: grey;
-}
+} */
